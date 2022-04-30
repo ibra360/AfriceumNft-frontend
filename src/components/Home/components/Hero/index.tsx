@@ -3,11 +3,12 @@ import { AiFillPlayCircle } from "react-icons/ai";
 import { GrCircleInformation } from "react-icons/gr";
 import { useAuthState } from "../../../../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
-
+import { toast } from "react-toastify";
+import { useActiveWeb3React } from "../../../../hooks";
 
 const Hero = () => {
-
   const navigate = useNavigate();
+  const { account } = useActiveWeb3React();
 
   const { user } = useAuthState();
   return (
@@ -17,17 +18,37 @@ const Hero = () => {
         <div className={styles.content}>
           <div className={styles.discover}>
             <h1>Discover, collect, and sell extraordinary NFTs</h1>
-            <p>Africeum is the world&apos;s first and largest NFT marketplace</p>
+            <p>
+              Africeum is the world&apos;s first and largest NFT marketplace
+            </p>
             <div className={styles.buttons}>
-              <button  onClick={() => {
+              <button
+                onClick={() => {
                   navigate("discover");
-              }} className={styles.explore}>Explore</button>
-              <button               onClick={() => {
-                if (user && user.image) {
-                  navigate("create");
-                } else {
-                }
-              }} className={styles.create}>Create</button>
+                }}
+                className={styles.explore}
+              >
+                Explore
+              </button>
+              <button
+                onClick={() => {
+                  if (user && user.image) {
+                    navigate("/create");
+                  }
+                  if (account && !user?.image) {
+                    toast.error("Profile is not complete!");
+                    navigate("/edit-profile");
+                  }
+                  if (!account) {
+                    toast.error("Wallet not Connected!");
+                    // setShowConnectOptions(true);
+                  } else {
+                  }
+                }}
+                className={styles.create}
+              >
+                Create
+              </button>
             </div>
             <a className={styles.learn} href="#vid">
               <AiFillPlayCircle />
@@ -53,6 +74,14 @@ const Hero = () => {
           Learn More about Africeum
         </a> */}
       </div>
+      {/* {showConnectOptions && (
+          <Backdrop>
+            <ConnectModal
+              login={login}
+              onDismiss={() => setShowConnectOptions(false)}
+            />
+          </Backdrop>
+        )} */}
     </div>
   );
 };

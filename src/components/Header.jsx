@@ -61,9 +61,7 @@ const Header = () => {
         (location.pathname !== "/search" && query !== "")
       ) {
         handleSearch(query);
-        setTimeout(() => {
-          // window.location.reload()
-        }, 500);
+        
       }
     }
   };
@@ -75,7 +73,10 @@ const Header = () => {
   return (
     <>
       <header className="App-header fixed top-0 w-full h-[60px] md:h-[72px] px-4 md:px-7 flex items-center justify-between shadow-lg bg-white z-[9999]">
-        <a href="/" className="flex items-center justify-start pr-16 text-2xl font-bold logo xl:pr-44 text-Dark">
+        <a
+          href="/"
+          className="flex items-center justify-start pr-16 text-2xl font-bold logo xl:pr-44 text-Dark"
+        >
           <img className="w-10 mr-2" src="/logos.png" />
           <span className="ml-1 text-xl uppercase color-black">Africeum</span>
           {/* <img src="https://opensea.io/static/images/logos/opensea.svg" alt="logo" className="w-10 mr-2" /> */}
@@ -237,19 +238,18 @@ const Header = () => {
                 </ul>
               </a>
             </li> */}
-            <li className="ml-5 xl:ml-10">
+            <li className="ml-5 xl:ml-10" style={{ cursor: "pointer" }}>
               <a
                 onClick={() => {
                   if (user && user.image) {
-                    navigate("create");
+                    navigate("/create");
                   } else {
-                    toast.error('Profile is not complete!')
-                    if(account){
+                    toast.error("Profile is not complete!");
+                    if (account) {
                       navigate("/edit-profile");
-                    }else{
+                    } else {
                       setShowConnectOptions(true);
                     }
-                    
                   }
                 }}
                 className="relative text-sm font-semibold group xl:text-base"
@@ -261,11 +261,11 @@ const Header = () => {
             </li>
             <li className="ml-5 xl:ml-10">
               <a
-                href="/"
+                // href="/"
                 className="relative text-sm font-semibold group xl:text-base"
               >
                 <span className="h-[72px] inline-flex items-center">
-                  <ProfileIcon color={account ?'#ff0022':'#000'} />
+                  <ProfileIcon color={account ? "#ff0022" : "#000"} />
                 </span>
                 <ul className="absolute top-[35px] -right-4 w-60 bg-white shadow-NFT opacity-0 invisible overflow-hidden rounded-lg transition ease-in group-hover:opacity-100 group-hover:visible">
                   <li>
@@ -273,21 +273,21 @@ const Header = () => {
                       className="flex flex-row items-center w-full p-3 transition ease-in border-b border-solid border-Grey/30 hover:shadow-lg"
                       onClick={() => {
                         setLoginNav(!loginNav);
-                        if(account){
+                        if (account) {
                           if (user?.username) {
                             navigate(`/profile/${user.username}`);
-                          }else{
-                            toast.error('Profile is not complete!')
+                          } else {
+                            toast.error("Profile is not complete!");
                             navigate("/edit-profile");
                           }
-                        }else{
-                          toast.error('Wallet is not connected!')
+                        } else {
+                          toast.error("Wallet is not connected!");
                           setShowConnectOptions(true);
                         }
                       }}
                     >
                       <BsFillPersonFill />
-                      
+
                       <div className="ml-2">Profile</div>
                     </a>
                   </li>
@@ -296,10 +296,10 @@ const Header = () => {
                       className="flex flex-row items-center w-full p-3 transition ease-in border-b border-solid border-Grey/30 hover:shadow-lg"
                       onClick={() => {
                         setLoginNav(!loginNav);
-                        if(account){
+                        if (account) {
                           navigate("/edit-profile");
-                        }else{
-                          toast.error('Wallet is not connected!')
+                        } else {
+                          toast.error("Wallet is not connected!");
                           setShowConnectOptions(true);
                         }
                       }}
@@ -322,9 +322,9 @@ const Header = () => {
             <li className="ml-5 xl:ml-10">
               <button
                 onClick={() => {
-                  if(!account){
+                  if (!account) {
                     setShowConnectOptions(true);
-                  }else{
+                  } else {
                     setLoginNav(!loginNav);
                     logout();
                   }
@@ -360,7 +360,6 @@ const Header = () => {
                       clickWallet={() => {
                         setShowConnectOptions(true);
                       }}
-
                       onChange={(e) => {
                         setQuery(e.target.value);
                       }}
