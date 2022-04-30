@@ -1,0 +1,20 @@
+/* --------------------------------- Default -------------------------------- */
+@media screen and (min-width: 0px) {
+  .container {
+    @apply flex flex-col items-center;
+  }
+
+  main {
+    @apply flex flex-col items-center overflow-hidden max-w-[100vw];
+  }
+
+  .background {
+    @apply absolute w-full h-full bg-no-repeat bg-cover -z-10;
+    background-image: url("../../../../assets/images/africeummain.png");
+    background-position: center center;
+    filter: blur(8px);
+    width: 100vw;
+    height: 100vh;
+    mask: linear-gradient(rgb(255, 255, 255), transparent);
+  }
+}
