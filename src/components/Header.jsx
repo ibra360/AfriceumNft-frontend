@@ -61,7 +61,6 @@ const Header = () => {
         (location.pathname !== "/search" && query !== "")
       ) {
         handleSearch(query);
-        
       }
     }
   };
@@ -102,7 +101,7 @@ const Header = () => {
           <ul className="flex items-center justify-end">
             <li className="ml-5 xl:ml-10">
               <a
-                href="/"
+                href="/explore"
                 className="relative text-sm font-semibold group xl:text-base"
               >
                 <span className="h-[72px] inline-flex items-center transition ease-in text-black/70 hover:text-black">
@@ -243,13 +242,15 @@ const Header = () => {
                 onClick={() => {
                   if (user && user.image) {
                     navigate("/create");
-                  } else {
+                  }
+                  if (account && !user?.image) {
                     toast.error("Profile is not complete!");
-                    if (account) {
-                      navigate("/edit-profile");
-                    } else {
-                      setShowConnectOptions(true);
-                    }
+                    navigate("/edit-profile");
+                  }
+                  if (!account) {
+                    toast.error("Wallet not Connected!");
+                    setShowConnectOptions(true);
+                  } else {
                   }
                 }}
                 className="relative text-sm font-semibold group xl:text-base"

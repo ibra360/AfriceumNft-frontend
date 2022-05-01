@@ -86,9 +86,9 @@ const Explore = () => {
     }
   };
 
-  const handleFilter = (type,position) => {
-    console.log('handleFilter:',type,position)
-    if(type === 0){
+  const handleFilter = (type, position) => {
+    console.log("handleFilter:", type, position);
+    if (type === 0) {
       if (position === 1) {
         setFilterNow(!filterNow);
         setFetchParams((prev) => ({
@@ -109,13 +109,11 @@ const Explore = () => {
         }));
       }
     }
-
   };
 
-  const priceFilterHandle =(asset,from, to)=> {
-    console.log('priceHandle',asset,from,to)
-    
-  }
+  const priceFilterHandle = (asset, from, to) => {
+    console.log("priceHandle", asset, from, to);
+  };
 
   const handleLoadMore = () => {
     setFetchParams((prev) => ({
@@ -126,7 +124,10 @@ const Explore = () => {
 
   return (
     <div className="App">
-      <div className="flex assets-page-wrapper pt-[60px] md:pt-[72px]">
+      <div
+        className="flex assets-page-wrapper pt-[60px] md:pt-[72px]"
+        style={{ backgroundColor: "white" }}
+      >
         <div
           className={`side-bar ${
             showFilter ? "show-mobile-filter" : ""
@@ -175,7 +176,10 @@ const Explore = () => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0 -translate-x-full"
           >
-            <Sidebar  handleFilter={handleFilter} handlePrice={priceFilterHandle}/>
+            <Sidebar
+              handleFilter={handleFilter}
+              handlePrice={priceFilterHandle}
+            />
           </Transition>
         </div>
         <div className="flex-1 px-4 pb-16 main-area lg:px-7">

@@ -9,7 +9,7 @@ function Profile({ postDetails }) {
   const { didFollow, follow } = useFollowButton(postDetails);
 
   return (
-    <div className="profile-item w-full shadow-profile p-[14px] rounded-3xl  xl:max-h-[431px] lg:max-h-[376px] bg-white border border-solid border-opacity-10 border-white relative cursor-pointer transition ease-in hover:-translate-y-2">
+    <div className="profile-item w-full shadow-profile p-[14px] rounded-3xl  xl:max-h-[431px] lg:max-h-[376px] bg-white border border-solid border-opacity-10 border-white relative cursor-pointer transition ease-in hover:-translate-y-2" >
       <div>
         <a
           href={`/profile/${postDetails.username}`}
@@ -60,7 +60,7 @@ function Profile({ postDetails }) {
             <button
               onClick={() => follow()}
               type="button"
-              className="w-full text-black text-sm bg-[rgb(239,238,234)] mt-5 font-medium border-none h-10 rounded-full cursor-pointer transition ease-in hover:bg-primaryBlack hover:text-white"
+              className="w-full text-black text-sm bg-[rgb(255,255,255)] mt-5 font-medium border-none h-10 rounded-full cursor-pointer transition ease-in hover:bg-primaryBlack hover:text-white"
             >
               {" "}
               {didFollow ? "Following" : "Follow"}

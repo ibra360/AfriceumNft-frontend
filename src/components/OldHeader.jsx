@@ -95,7 +95,7 @@ function Header() {
   return (
     <header
       id="main-header"
-      className="fixed top-0 left-0 w-full z-[99] transition-all ease-in delay-300 flex justify-between items-center py-3 xl:px-10 px-4 bg-[rgb(239,238,234)]"
+      className="fixed top-0 left-0 w-full z-[99] transition-all ease-in delay-300 flex justify-between items-center py-3 xl:px-10 px-4 bg-[rgb(255,255,255)]"
     >
       <div className="flex items-center ">
         <div className="mr-3 mobile-btn lg:hidden">

@@ -3,7 +3,7 @@ import axios from "axios";
 import AnimatedPage from "../AnimatedPage";
 import { Link, useParams } from "react-router-dom";
 import Backdrop from "../../components/Utilities/Backdrop";
-import { DefaultAvatar, GRAPHQL_URL ,DefaultArt} from "../../config/constants";
+import { DefaultAvatar, GRAPHQL_URL, DefaultArt } from "../../config/constants";
 
 import { getAFCNFTAddress } from "../../utils/addressHelpers";
 
@@ -18,9 +18,6 @@ import useVerfiyButton from "../../hooks/useVerifyButton";
 import { useCoverBg } from "../../hooks/useCoverBg";
 
 function CreatorsArchive() {
-
-
-  
   const [layout, setLayout] = useState(false);
   const [filterActive, setFilterActive] = useState(false);
   const [group1, setGroup1] = useState(false);
@@ -41,8 +38,6 @@ function CreatorsArchive() {
     currentBid: [],
     owned: [],
   });
-
-
 
   useEffect(() => {
     if (username) {
@@ -186,7 +181,6 @@ function CreatorsArchive() {
     // }
   }, [user, account]);
 
-
   const [showShare, setShowShare] = useState(false);
 
   const [isAdmin, setIsAdmin] = useState(false);
@@ -206,15 +200,17 @@ function CreatorsArchive() {
 
   const { didVerify, verify } = useVerfiyButton(user);
 
-
   return (
     <AnimatedPage>
       {user ? (
-        <div className="px-4 pb-20 archive-wrapper lg:px-10 mt-[70px]">
+        <div
+          className="px-4 pb-20  pt-[20px]  archive-wrapper lg:px-10 mt-[70px]"
+          style={{ backgroundColor: "white" }}
+        >
           <div className="archive-banner-wrap rounded-3xl flex relative overflow-hidden p-8 w-full h-full min-h-[500px] before:absolute before:w-full before:h-full before:top-0 before:left-0 before:bg-gradient-to-t before:from-archive2 before:to-archive1 before:z-10">
             <img
               className="absolute top-0 left-0 z-10 object-cover object-center w-full h-full"
-              src={user?.banner ||  DefaultArt}
+              src={user?.banner || DefaultArt}
               alt={"Banner"}
             />
             <div className="w-full max-w-[1400px] m-auto relative z-20 mb-0">

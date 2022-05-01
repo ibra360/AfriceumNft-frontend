@@ -178,20 +178,16 @@ function NFTsSinglePage() {
     }
   };
 
-
-  
   const defaultBg = useCoverBg(DefaultArt);
 
   const getActiveClass = (index, className) =>
     toggleState === index ? className : "";
 
-
-
   return (
     <AnimatedPage>
       <div className="pb-24 single-page mt-[70px]">
         {item ? (
-          <div className="max-w-[1490px]  m-auto px-4">
+          <div className=" m-auto px-6" style={{ backgroundColor: "white" }}>
             <div className="grid grid-cols-1 gap-1 py-5 sm:grid-cols-2 sm:gap-3 single-page-banner">
               <div className="block p-4 overflow-hidden">
                 <div className="media-wrap overflow-hidden rounded-[22px] object-contain relative shadow-sm w-full pb-[100%]">
