@@ -188,7 +188,10 @@ function NFTsSinglePage() {
       <div className="pb-24 single-page mt-[70px]">
         {item ? (
           <div className=" m-auto px-6" style={{ backgroundColor: "white" }}>
-            <div className="grid grid-cols-1 gap-1 py-5 sm:grid-cols-2 sm:gap-3 single-page-banner">
+            <div
+              className="grid grid-cols-1 gap-1 py-5 sm:grid-cols-2 sm:gap-3 single-page-banner"
+              style={{ width: "80%" }}
+            >
               <div className="block p-4 overflow-hidden">
                 <div className="media-wrap overflow-hidden rounded-[22px] object-contain relative shadow-sm w-full pb-[100%]">
                   {assetType(item.type) == AssetType.NONE && (
@@ -234,7 +237,7 @@ function NFTsSinglePage() {
                 </div>
               </div>
               <div className="w-full right lg:px-5 h-fit">
-                <div className="NFTs-details">
+                <div className="NFTs-details" style={{ width: "140%" }}>
                   <div className="back"></div>
                   <h1 className="text-[30px] md:text-[35px] lg:text-[48px] font-semibold text-black mb-2">
                     {item?.name}
